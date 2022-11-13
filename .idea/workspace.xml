@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e01bdb6-f669-4511-8e88-3d63886ff7b8" name="Changes" comment="test 2d">
-      <change afterPath="$PROJECT_DIR$/src/jade/LevelEditorScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jade/LevelScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jade/Scene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/Time.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/shaders/default.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jade/LevelEditorScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jade/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jade/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jade/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,17 +32,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Javautveckling/lwjgl&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Javautveckling/lwjgl",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -87,7 +87,8 @@
       <workItem from="1668291724412" duration="1775000" />
       <workItem from="1668353414592" duration="2267000" />
       <workItem from="1668360856067" duration="2288000" />
-      <workItem from="1668370556460" duration="2737000" />
+      <workItem from="1668370556460" duration="2792000" />
+      <workItem from="1668375047879" duration="2565000" />
     </task>
     <task id="LOCAL-00001" summary="test 2d">
       <created>1668293484625</created>
@@ -131,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668368914533</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="test 2d">
+      <created>1668373346126</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668373346126</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
