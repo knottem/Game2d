@@ -23,6 +23,11 @@ public class Window {
 
     private static Window window = null;
 
+    //FPS
+    double previousTime;
+    int frameCount;
+
+
     private Window(){
         this.width = 1920;
         this.height = 1080;
@@ -102,7 +107,25 @@ public class Window {
 
     }
 
+    public void showFps(){
+        // Measure speed
+        double currentTime = glfwGetTime();
+        frameCount++;
+
+        if ( currentTime - previousTime >= 1.0 ) {
+            // Display the frame count here any way you want.
+            System.out.println(frameCount);
+            frameCount = 0;
+            previousTime = currentTime;
+        }
+    }
+
     public void loop(){
+
+        //FPS
+        previousTime = glfwGetTime();
+        frameCount = 0;
+
 
         while(!glfwWindowShouldClose(glfwWindow)){
             // Poll events
@@ -111,6 +134,8 @@ public class Window {
             glClearColor(r,g,b,a);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            showFps();
+
             if(fadeToBlack){
                 r = Math.max(r - 0.01f, 0);
                 g = Math.max(g - 0.01f, 0);
@@ -118,8 +143,7 @@ public class Window {
             }
 
             if(KeyListener.isKeyPressed(GLFW_KEY_SPACE)){
-                System.out.println("Space key is pressed");
-                fadeToBlack = true;
+                fadeToBlack = false;
             }
             if(MouseListener.isDragging()){
                 System.out.println(MouseListener.getX());
