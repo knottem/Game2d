@@ -11,8 +11,9 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
 
-    private int width, height;
-    private String title;
+    private final int width;
+    private final int height;
+    private final String title;
     private long glfwWindow;
 
     private float r,g,b,a;
@@ -25,7 +26,7 @@ public class Window {
     private Window(){
         this.width = 1920;
         this.height = 1080;
-        this.title = "Mario";
+        this.title = "Test 2D";
         r = 1;
         g = 1;
         b = 1;
