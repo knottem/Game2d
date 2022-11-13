@@ -16,17 +16,11 @@ public class Window {
     private final String title;
     private long glfwWindow;
 
-    private float r,g,b,a;
-
-    //temp
-    private boolean fadeToBlack = false;
+    public float r,g,b,a;
 
     private static Window window = null;
 
-    //FPS
-    double previousTime;
-    int frameCount;
-
+    private static Scene currentScene;
 
     private Window(){
         this.width = 1920;
@@ -36,6 +30,21 @@ public class Window {
         g = 1;
         b = 1;
         a = 1;
+    }
+
+    public static void changeScene(int newScene){
+        switch(newScene){
+            case 0:
+                currentScene = new LevelEditorScene();
+                //currentScene.init();
+                break;
+            case 1:
+                currentScene = new LevelScene();
+                break;
+            default:
+                assert false : "Unknown scene '" + newScene + "'";
+                break;
+        }
     }
 
     public static Window get(){
@@ -78,7 +87,7 @@ public class Window {
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
         //START MAXIMIZED
-        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
+        //glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
         //Create the window
         glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
@@ -107,53 +116,35 @@ public class Window {
         // bindings available for use.
         GL.createCapabilities();
 
-    }
+        Window.changeScene(0);
 
-    public void showFps(){
-        // Measure speed
-        double currentTime = glfwGetTime();
-        frameCount++;
-
-        if ( currentTime - previousTime >= 1.0 ) {
-            // Display the frame count here any way you want.
-            System.out.println(frameCount);
-            frameCount = 0;
-            previousTime = currentTime;
-        }
     }
 
     public void loop(){
 
-        //FPS
-        previousTime = glfwGetTime();
-        frameCount = 0;
-
+        //FPS and dt
+        double beginTime = glfwGetTime();
+        double endTime;
+        double dt = -1;
 
         while(!glfwWindowShouldClose(glfwWindow)){
+
             // Poll events
             glfwPollEvents();
 
             glClearColor(r,g,b,a);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            showFps();
-
-            if(fadeToBlack){
-                r = Math.max(r - 0.01f, 0);
-                g = Math.max(g - 0.01f, 0);
-                b = Math.max(b - 0.01f, 0);
+            if(dt >= 0) {
+                currentScene.update(dt);
             }
-
-            if(KeyListener.isKeyPressed(GLFW_KEY_SPACE)){
-                fadeToBlack = false;
-            }
-            if(MouseListener.isDragging()){
-                System.out.println(MouseListener.getX());
-                System.out.println(MouseListener.getY());
-            }
-
 
             glfwSwapBuffers(glfwWindow);
+
+            endTime = glfwGetTime();
+            dt = endTime - beginTime;
+            beginTime = endTime;
+
         }
 
     }
