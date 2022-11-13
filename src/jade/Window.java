@@ -57,7 +57,7 @@ public class Window {
         glfwFreeCallbacks(glfwWindow);
         glfwDestroyWindow(glfwWindow);
 
-        //Terminate GLFW and the free the error callback
+        //Terminate GLFW and free the error callback
         glfwTerminate();
         glfwSetErrorCallback(null).free();
 
@@ -76,6 +76,8 @@ public class Window {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
+
+        //START MAXIMIZED
         glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
         //Create the window
